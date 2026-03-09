@@ -16,6 +16,9 @@ const Expenses = (props) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
+  console.log("Filtered year:", filteredYear);
+  console.log("Filtered expenses:", filteredExpenses);
+
   return (
     <div className="expenses">
       <ExpensesFilter
@@ -24,10 +27,7 @@ const Expenses = (props) => {
       />
 
       {filteredExpenses.map((expense) => (
-        <ExpenseItem
-          key={expense.title + expense.date.toISOString()}
-          data={expense}
-        />
+        <ExpenseItem key={expense.id} data={expense} />
       ))}
     </div>
   );
